@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.topbar {
+  background-color: #ffffff;
+  padding:6px;
+  border-bottom: 1px solid #b4b4b4;
+}
+
+.topbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contactbar {
+  display: flex;
+  align-items: center;
+}
+
+.maillink,
+.PhoneNumber {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.maillink a,
+.PhoneNumber span {
+  margin-left: 5px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.socialMedia1 {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.socialMedia1 a {
+  margin-left: 15px;
+  color: #000000;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.socialMedia1 a:first-child {
+  margin-left: 0;
+}
+
+.socialMedia1 a:hover {
+  color: #007bff;
+}
+
+.maillink .MuiSvgIcon-root,
+.PhoneNumber .MuiSvgIcon-root,
+.socialMedia1 .MuiSvgIcon-root {
+  font-size: 18px;
+  color: #000000; 
+}
+
+@media screen and (max-width: 800px) {
+  .socialMedia1 {
+    display: none;
+  }
+  .topbar{
+    font-size:11px;
+  }
+}
+@media screen and (max-width: 550px){
+  .topbar{
+    display:none;
+  }
+}

@@ -1,0 +1,85 @@
+.pricing {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.service-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.servicegif {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.servicegif img {
+  width: 60px;
+  height: 50px;
+}
+
+.pricing-details h2 {
+  color: #343a40;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.pricing-details h4 {
+  color: #6c757d;
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.item span:first-child {
+  color: #5d5d5d;
+}
+
+.item span:last-child {
+  color: #212121;
+}
+
+@media (max-width: 800px) {
+  .service-card {
+      padding: 10px;
+      width: 200px;
+      margin: 10px;
+  }
+
+  .servicegif img {
+      width: 40px;
+      height: 35px;
+  }
+
+  .pricing-details h2 {
+      font-size: 1rem;
+      margin: 5px 0;
+  }
+
+  .pricing-details h4 {
+      font-size: 12px;
+      padding-bottom: 5px;
+  }
+
+  .item {
+      margin: 5px 0;
+      font-size: 12px;
+  }
+}

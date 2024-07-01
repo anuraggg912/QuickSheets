@@ -1,0 +1,190 @@
+/*.navbar{
+  width : 100%;
+  color : #fff;
+  padding:10px 25px;
+  display:flex;
+  align-items: center;
+  justify-content:space-between;
+  z-index:10;
+  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height: 40px;
+}
+
+.rightSide a {
+  text-decoration: none;
+  color: black;
+  padding: 10px 15px;
+  display: block;
+  font-weight: normal;
+}
+
+.rightSide a:hover {
+  border-bottom: 2px solid gray;
+  color: gray;
+}
+
+.hiddenLinks {
+  display: none;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+}
+
+/* Dropdown menu 
+.dropdownMenu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: white;
+  width: 100%;
+  display: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.dropdownMenu.open {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdownMenu a {
+  text-decoration: none;
+  color: black;
+  padding: 10px 20px;
+  width: 100%;
+  text-align: center;
+  font-weight: normal;
+}
+
+.dropdownMenu a:hover {
+  background-color: lightgray;
+}
+
+/* Close icon style *
+.closeIcon {
+  position: absolute;
+  top: 15px; 
+  right: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+@media screen and (max-width: 768px) {
+  .rightSide {
+    display: none;
+  }
+
+  .dropdownMenu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+
+  .dropdownMenu.open {
+    display: flex;
+  }
+
+  .dropdownMenu a {
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  /* Show close icon in dropdown menu *
+  .closeIcon {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 2;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .rightSide {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+
+  .menu-button {
+    display: none;
+  }
+}
+
+
+
+
+import React, { useState, useEffect } from 'react';
+import './Navbar.css';
+import QSlogo from '../../assets/QSlogo.png';
+import ReorderIcon from '@mui/icons-material/Reorder';
+import CloseIcon from '@mui/icons-material/Close';
+import { Link } from 'react-router-dom';
+
+function Navbar() {
+  const [openLinks, setOpenLinks] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const toggleNavbar = () => {
+    setOpenLinks(!openLinks);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+        setOpenLinks(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return (
+    <header>
+      <nav className="navbar">
+        <div className="logo">
+          <img src={QSlogo} alt="Quicksheets" />
+        </div>
+        <div className={`rightSide ${isMobile ? 'hidden' : ''}`}>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/pricing">Pricing</Link>
+          <Link to="/contact">Contact</Link>
+        </div>
+        <button onClick={toggleNavbar} className="menu-button">
+          {openLinks ? <CloseIcon /> : <ReorderIcon />}
+        </button>
+      </nav>
+      <div className={`dropdownMenu ${openLinks ? 'open' : ''}`}>
+        <Link to="/" onClick={toggleNavbar}>Home</Link>
+        <Link to="/about" onClick={toggleNavbar}>About</Link>
+        <Link to="/pricing" onClick={toggleNavbar}>Pricing</Link>
+        <Link to="/contact" onClick={toggleNavbar}>Contact</Link>
+      </div>
+    </header>
+  );
+}
+
+export default Navbar;
+*/

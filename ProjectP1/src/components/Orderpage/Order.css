@@ -1,0 +1,104 @@
+.order-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.12);
+}
+.yourdetail{
+    text-align: center;
+}
+.order-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-form label {
+    margin-top: 10px;
+    font-weight: 500;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.order-form input,
+.order-form .react-select__control,
+.order-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.order-form .react-select__control {
+    padding: 0;
+}
+
+.btn-confirm {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-confirm:hover {
+    background-color: black;
+}
+
+.upload-section {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.upload-section:hover {
+    border-color: #007bff;
+}
+
+.upload-section input {
+    display: none;
+}
+
+.uploaded-files {
+    margin-top: 10px;
+}
+
+.uploaded-file {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background-color: #f8f9fa;
+}
+
+.uploaded-file span {
+    flex: 1;
+}
+
+.uploaded-file button {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.uploaded-file button:hover {
+    color: #a71d2a;
+}
+.ImportantNote{
+    background-color: rgb(146, 235, 235);
+    color:#006518;
+    padding: 15px 10px;;
+    margin: 10px 0;
+}
