@@ -7,12 +7,12 @@
     align-items: center;
     justify-content: center;
     color: black;
-    background-image: url("C:/Users/HP/OneDrive/Desktop/ProjectP/ProjectP1/src/assets/heroBG.svg");
+    background-image: url("./assets/heroBG.svg");
     padding: 0;
     margin: 0;
     position: relative;
-    left: 50%; /* Center the hero section */
-    transform: translateX(-50%); /* Adjust position to compensate for left offset */
+    left: 50%;
+    transform: translateX(-50%); 
     overflow: hidden;
 }
 .hero-text{
