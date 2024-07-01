@@ -3,7 +3,6 @@ import './Order.css';
 import Select from 'react-select';
 import axios from 'axios';
 
-
 const Order = () => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -60,13 +59,13 @@ const Order = () => {
 
     const handleServiceChange = (selectedOption) => {
         setSelectedService(selectedOption.value);
-        setSelectedItem('');
+        setSelectedItem(''); // Reset selectedItem when service changes
         setNumberOfItems('');
         setUploadedFiles([]);
     };
 
     const handleItemChange = (selectedOption) => {
-        setSelectedItem(selectedOption.value);
+        setSelectedItem(selectedOption.value); // Update selectedItem correctly
     };
 
     const handleNumberOfItemsChange = (e) => {
@@ -228,7 +227,7 @@ const Order = () => {
                             name="item"
                             options={itemsOptions[selectedService].map(item => ({ value: item, label: item }))}
                             placeholder="Choose option"
-                            value={itemsOptions[selectedService].find(option => option === selectedItem)}
+                            value={{ value: selectedItem, label: selectedItem }}
                             onChange={handleItemChange}
                             required
                         />
@@ -264,52 +263,53 @@ const Order = () => {
                                 <div key={index} className="uploaded-file">
                                     <span>{file.name}</span>
                                     <button type="button" onClick={() => handleFileDelete(file.name)}>X</button>
-                                </div>
-                            ))}
-                        </div>
-                    </>
-                )}
-
-                {selectedService === 'Printing' && selectedItem === 'Custom(B&W + Color)' && (
-                    <>
-                        <label><i>*You can write your preference for custom pages in the text box below.</i></label>
-                        <textarea name="preference" rows="3" placeholder="Write your preference here..."></textarea>
-                    </>
-                )}
-
-                <label>Day</label>
-                <Select
-                    name="day"
-                    options={weekDates}
-                    value={selectedDate}
-                    placeholder="Choose Day of Delivery"
-                    onChange={handleDateChange}
-                    required
-                />
-
-                <label>Preferred Timing</label>
-                <Select
-                    name="time"
-                    options={timingSlot}
-                    placeholder="Choose Time of Delivery"
-                    isDisabled={isTimeDisabled}
-                    required
-                />
-
-                <label>Any Additional Note/Specific Requirements in Order? Write here-</label>
-                <textarea
-                    name="message"
-                    rows="2"
-                    placeholder="(optional)"
-                ></textarea>
-                <button className="btn-confirm" type="submit">Submit</button>
-                <div className="ImportantNote">
-                    <span>Important Note: </span>
-                    <span> Your order will be delivered at the center gate of your block.</span>
-                </div>
-            </form>
-        </div>
-    );
-};
-
-export default Order;
+                                    </div>
+                                ))}
+                            </div>
+                        </>
+                    )}
+    
+                    {selectedService === 'Printing' && selectedItem === 'Custom(B&W + Color)' && (
+                        <>
+                            <label><i>*You can write your preference for custom pages in the text box below.</i></label>
+                            <textarea name="preference" rows="3" placeholder="Write your preference here..."></textarea>
+                        </>
+                    )}
+    
+                    <label>Day</label>
+                    <Select
+                        name="day"
+                        options={weekDates}
+                        value={selectedDate}
+                        placeholder="Choose Day of Delivery"
+                        onChange={handleDateChange}
+                        required
+                    />
+    
+                    <label>Preferred Timing</label>
+                    <Select
+                        name="time"
+                        options={timingSlot}
+                        placeholder="Choose Time of Delivery"
+                        isDisabled={isTimeDisabled}
+                        required
+                    />
+    
+                    <label>Any Additional Note/Specific Requirements in Order? Write here-</label>
+                    <textarea
+                        name="message"
+                        rows="2"
+                        placeholder="(optional)"
+                    ></textarea>
+                    <button className="btn-confirm" type="submit">Submit</button>
+                    <div className="ImportantNote">
+                        <span>Important Note: </span>
+                        <span> Your order will be delivered at the center gate of your block.</span>
+                    </div>
+                </form>
+            </div>
+        );
+    };
+    
+    export default Order;
+    
