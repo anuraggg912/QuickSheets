@@ -97,6 +97,21 @@ const Order = () => {
             formData.append('files', file);
         });
 
+        const fileType = files.type;
+
+        if (
+            !(
+                fileType === "application/pdf" ||
+                fileType === "application/msword" ||
+                fileType === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ||
+                fileType.startsWith("image/")
+            )
+        ) {
+            alert("Please upload a valid file (PDF, Word, or image).");
+            e.target.value = null;
+            return;
+        }
+
         try {
             const response = await axios.post('http://localhost:5000/upload', formData, {
                 headers: {
@@ -281,6 +296,7 @@ const Order = () => {
                             type="file"
                             name="files"
                             multiple
+                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                             onChange={handleFileUpload}
                             required
                         />
