@@ -11,6 +11,7 @@ import Title from './Title/Title';
 import Review from './components/Review/Review';
 import Pricing from './pages/Pricing/Pricing';
 import Order from './components/Orderpage/Order';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
 
 function AppContent() {
   const location = useLocation();
-  const HomePage = location.pathname === '/';
+  const isHomePage = location.pathname === '/';
 
   return (
     <>
@@ -38,7 +39,7 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/order" element={<Order />} />
       </Routes>
-      {HomePage && (
+      {isHomePage && (
         <>
           <Hero />
           <Title title="OUR PRICING" />
@@ -49,6 +50,7 @@ function AppContent() {
           <Contact />
         </>
       )}
+      <SpeedInsights />
     </>
   );
 }
