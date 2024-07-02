@@ -37,13 +37,12 @@ function AppContent() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/order" element={<Order />} />
-
       </Routes>
       {HomePage && (
         <>
           <Hero />
           <Title title="OUR PRICING" />
-          <Pricing/>
+          <Pricing />
           <Title title="OUR REVIEWS" subtitle="What our customers said about us" />
           <Review />
           <Title title="CONTACT US" />
