@@ -14,6 +14,7 @@ const Order = () => {
     const [selectedItem, setSelectedItem] = useState('');
     const [numberOfItems, setNumberOfItems] = useState('');
     const [uploadedFiles, setUploadedFiles] = useState([]);
+    const [blockname, setBlockName] = useState('');
 
     useEffect(() => {
         if (selectedDate) {
@@ -39,6 +40,21 @@ const Order = () => {
         }
     };
 
+    const blockOptions = [
+        { label: 'B1', value: 'B1' },
+        { label: 'B2', value: 'B2' },
+        { label: 'B3', value: 'B3' },
+        { label: 'B4', value: 'B4' },
+        { label: 'C1', value: 'C1' },
+        { label: 'C2', value: 'C2' },
+        { label: 'C3', value: 'C3' },
+    ]
+
+    const handleBlockChange = (selectedoption) => {
+        const selectedValue = selectedoption.target.value;
+        setBlockName(selectedValue);
+    };
+
     const handleDateChange = (selectedOption) => {
         setSelectedDate(selectedOption);
     };
@@ -59,13 +75,13 @@ const Order = () => {
 
     const handleServiceChange = (selectedOption) => {
         setSelectedService(selectedOption.value);
-        setSelectedItem(''); // Reset selectedItem when service changes
+        setSelectedItem('');
         setNumberOfItems('');
         setUploadedFiles([]);
     };
 
     const handleItemChange = (selectedOption) => {
-        setSelectedItem(selectedOption.value); // Update selectedItem correctly
+        setSelectedItem(selectedOption.value);
     };
 
     const handleNumberOfItemsChange = (e) => {
@@ -175,6 +191,11 @@ const Order = () => {
     };
 
     const weekDates = generateWeekDates();
+
+
+    // ------ RETURN STATEMENT ------
+
+
     return (
         <div className="order-container">
             <div className="yourdetail">
@@ -202,13 +223,18 @@ const Order = () => {
                 />
                 {phoneError && <p style={{ color: 'red' }}>{phoneError}</p>}
 
-                <label>Block Name</label>
-                <input
-                    type="text"
-                    name="block"
-                    placeholder="~Eg. A1, B1"
-                    required
-                />
+                <>
+                    <label>Block</label>
+                    <Select
+                        name="block"
+                        options={blockOptions}
+                        value={blockOptions.find(option => option.value === blockname)}
+                        onChange={(selectedOption) => setBlockName(selectedOption.value)}
+                        placeholder="Select Block"
+                        required
+                    />
+
+                </>
 
                 <label>Service Type</label>
                 <Select
@@ -263,53 +289,52 @@ const Order = () => {
                                 <div key={index} className="uploaded-file">
                                     <span>{file.name}</span>
                                     <button type="button" onClick={() => handleFileDelete(file.name)}>X</button>
-                                    </div>
-                                ))}
-                            </div>
-                        </>
-                    )}
-    
-                    {selectedService === 'Printing' && selectedItem === 'Custom(B&W + Color)' && (
-                        <>
-                            <label><i>*You can write your preference for custom pages in the text box below.</i></label>
-                            <textarea name="preference" rows="3" placeholder="Write your preference here..."></textarea>
-                        </>
-                    )}
-    
-                    <label>Day</label>
-                    <Select
-                        name="day"
-                        options={weekDates}
-                        value={selectedDate}
-                        placeholder="Choose Day of Delivery"
-                        onChange={handleDateChange}
-                        required
-                    />
-    
-                    <label>Preferred Timing</label>
-                    <Select
-                        name="time"
-                        options={timingSlot}
-                        placeholder="Choose Time of Delivery"
-                        isDisabled={isTimeDisabled}
-                        required
-                    />
-    
-                    <label>Any Additional Note/Specific Requirements in Order? Write here-</label>
-                    <textarea
-                        name="message"
-                        rows="2"
-                        placeholder="(optional)"
-                    ></textarea>
-                    <button className="btn-confirm" type="submit">Submit</button>
-                    <div className="ImportantNote">
-                        <span>Important Note: </span>
-                        <span> Your order will be delivered at the center gate of your block.</span>
-                    </div>
-                </form>
-            </div>
-        );
-    };
-    
-    export default Order;
-    
+                                </div>
+                            ))}
+                        </div>
+                    </>
+                )}
+
+                {selectedService === 'Printing' && selectedItem === 'Custom(B&W + Color)' && (
+                    <>
+                        <label><i>*You can write your preference for custom pages in the text box below.</i></label>
+                        <textarea name="preference" rows="3" placeholder="Write your preference here..."></textarea>
+                    </>
+                )}
+
+                <label>Day</label>
+                <Select
+                    name="day"
+                    options={weekDates}
+                    value={selectedDate}
+                    placeholder="Choose Day of Delivery"
+                    onChange={handleDateChange}
+                    required
+                />
+
+                <label>Preferred Timing</label>
+                <Select
+                    name="time"
+                    options={timingSlot}
+                    placeholder="Choose Time of Delivery"
+                    isDisabled={isTimeDisabled}
+                    required
+                />
+
+                <label>Any Additional Note/Specific Requirements in Order? Write here-</label>
+                <textarea
+                    name="message"
+                    rows="2"
+                    placeholder="(optional)"
+                ></textarea>
+                <button className="btn-confirm" type="submit">Submit</button>
+                <div className="ImportantNote">
+                    <span>Important Note: </span>
+                    <span> Your order will be delivered at the center gate of your block.</span>
+                </div>
+            </form>
+        </div>
+    );
+};
+
+export default Order;
