@@ -143,7 +143,9 @@ const Order = () => {
             { value: '12:50pm', label: '12:50 PM' },
             { value: '13:50pm', label: '13:50 PM' },
             { value: '14:30pm', label: '14:30 PM' },
-            { value: '15:30pm', label: '15:30 PM' }
+            { value: '15:30pm', label: '15:30 PM' },
+            { value: '16:20pm', label: '16:20 PM' }
+
         ];
 
         const filteredSlots = slots.filter(slot => {
@@ -197,7 +199,8 @@ const Order = () => {
                     { value: '12:50pm', label: '12:50 PM' },
                     { value: '13:50pm', label: '13:50 PM' },
                     { value: '14:30pm', label: '14:30 PM' },
-                    { value: '15:30pm', label: '15:30 PM' }
+                    { value: '15:30pm', label: '15:30 PM' },
+                    { value: '16:20pm', label: '16:20 PM' }
                 ]);
             }
         } else {
@@ -328,11 +331,11 @@ const Order = () => {
                     required
                 />
 
-                <label>Preferred Timing</label>
+                <label>Available Delivery Timings</label>
                 <Select
                     name="time"
                     options={timingSlot}
-                    placeholder="Choose Time of Delivery"
+                    placeholder="Time of Delivery"
                     isDisabled={isTimeDisabled}
                     required
                 />
