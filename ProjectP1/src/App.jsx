@@ -11,6 +11,7 @@ import Title from './Title/Title';
 import Review from './components/Review/Review';
 import Pricing from './pages/Pricing/Pricing';
 import Order from './components/Orderpage/Order';
+import Payment from './components/Payment/Payment';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
@@ -20,7 +21,6 @@ function App() {
         <Topbar />
         <Navbar />
         <AppContent />
-        <Footer />
       </Router>
     </div>
   );
@@ -29,6 +29,7 @@ function App() {
 function AppContent() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const showFooter = !['/order', '/payment'].includes(location.pathname);
 
   return (
     <>
@@ -38,6 +39,7 @@ function AppContent() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/order" element={<Order />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
       {isHomePage && (
         <>
@@ -50,6 +52,7 @@ function AppContent() {
           <Contact />
         </>
       )}
+      {showFooter && <Footer />}
       <SpeedInsights />
     </>
   );

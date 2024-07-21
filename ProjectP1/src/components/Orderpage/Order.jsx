@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Order.css';
 import Select from 'react-select';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Order = () => {
     const [name, setName] = useState('');
@@ -346,8 +347,9 @@ const Order = () => {
                     rows="2"
                     placeholder="(optional)"
                 ></textarea>
-                <button className="btn-confirm" type="submit">Submit</button>
-                <div className="ImportantNote">
+                <Link to="/payment">
+                    <button className="btn-confirm" type="submit">Submit</button>
+                </Link>                <div className="ImportantNote">
                     <span>Important Note: </span>
                     <span> Your order will be delivered at the center gate of your block.</span>
                 </div>
