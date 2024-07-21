@@ -32,6 +32,16 @@ function AppContent() {
   const isHomePage = location.pathname === '/';
   const showFooter = !['/order', '/payment', '/orderconfirmation'].includes(location.pathname);
 
+  const homeComponents = [
+    { component: <Hero />, key: 'hero' },
+    { component: <Title title="OUR PRICING" />, key: 'pricing-title' },
+    { component: <Pricing />, key: 'pricing' },
+    { component: <Title title="OUR REVIEWS" subtitle="What our customers said about us" />, key: 'reviews-title' },
+    { component: <Review />, key: 'reviews' },
+    { component: <Title title="CONTACT US" />, key: 'contact-title' },
+    { component: <Contact />, key: 'contact' },
+  ];
+
   return (
     <>
       <Routes>
@@ -44,17 +54,7 @@ function AppContent() {
         <Route path="/payment" element={<Payment />} />
         <Route path="/orderconfirmation" element={<OrderConfirmation />} />
       </Routes>
-      {isHomePage && (
-        <>
-          <Hero />
-          <Title title="OUR PRICING" />
-          <Pricing />
-          <Title title="OUR REVIEWS" subtitle="What our customers said about us" />
-          <Review />
-          <Title title="CONTACT US" />
-          <Contact />
-        </>
-      )}
+      {isHomePage && homeComponents.map(({ component, key }) => <React.Fragment key={key}>{component}</React.Fragment>)}
       {showFooter && <Footer />}
       <SpeedInsights />
     </>
