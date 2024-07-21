@@ -351,7 +351,7 @@ const Order = () => {
                     <button className="btn-confirm" type="submit">Submit</button>
                 </Link>                <div className="ImportantNote">
                     <span>Important Note: </span>
-                    <span> Your order will be delivered at the center gate of your block.</span>
+                    <span> Your order will be delivered outside of Center Gate of your block.</span>
                 </div>
             </form>
         </div>

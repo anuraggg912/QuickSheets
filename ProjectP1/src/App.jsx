@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Topbar from './Topbar/Topbar';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -13,6 +13,7 @@ import Pricing from './pages/Pricing/Pricing';
 import Order from './components/Orderpage/Order';
 import Payment from './components/Payment/Payment';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
 
 function App() {
   return (
@@ -29,17 +30,19 @@ function App() {
 function AppContent() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
-  const showFooter = !['/order', '/payment'].includes(location.pathname);
+  const showFooter = !['/order', '/payment', '/orderconfirmation'].includes(location.pathname);
 
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Navigate to="/" />} />
         <Route path="/about" element={<About />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/order" element={<Order />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/orderconfirmation" element={<OrderConfirmation />} />
       </Routes>
       {isHomePage && (
         <>
