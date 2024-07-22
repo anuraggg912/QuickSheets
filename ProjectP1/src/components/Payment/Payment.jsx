@@ -24,7 +24,9 @@ const PaymentOptions = () => {
         setUpiID(event.target.value);
     };
 
-    const handlePayment = async () => {
+    const handlePayment = async (event) => {
+        event.preventDefault(); // Prevent form from refreshing the page
+
         if (!upiID) {
             alert('Please enter your UPI ID');
             return;
@@ -51,7 +53,7 @@ const PaymentOptions = () => {
             </div>
             <div className="payment-options">
                 <h2>Pay Here</h2>
-                <form>
+                <form onSubmit={handlePayment}>
                     <label>
                         Please enter your UPI ID
                     </label>
@@ -61,7 +63,7 @@ const PaymentOptions = () => {
                         onChange={handleUpiIDChange}
                         placeholder="Enter UPI ID"
                     />
-                    <button type="button" onClick={handlePayment}>Pay ₹{orderSummary.totalAmount}</button>
+                    <button type="submit">Pay ₹{orderSummary.totalAmount}</button>
                 </form>
                 {paymentStatus && <p>{paymentStatus}</p>}
             </div>
