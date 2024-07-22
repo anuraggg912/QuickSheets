@@ -38,7 +38,6 @@ const PaymentOptions = () => {
         // Open UPI app
         window.location.href = paymentUrl;
 
-        // Show status message
         setPaymentStatus('Check your UPI app for payment request.');
     };
 

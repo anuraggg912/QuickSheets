@@ -38,8 +38,9 @@
 .btn-confirm {
     background-color: #28a745;
     color: white;
+    width: 100px;
     padding: 10px;
-    border: none;
+    border: 0px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
@@ -101,4 +102,9 @@
     color:#006518;
     padding: 15px 10px;;
     margin: 10px 0;
+}
+.paymentlink{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 }

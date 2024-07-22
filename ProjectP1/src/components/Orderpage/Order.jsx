@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 const Order = () => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
-    const [phoneError, setPhoneError] = useState('');
     const [selectedDate, setSelectedDate] = useState(null);
     const [timingSlot, setTimingSlot] = useState([]);
     const [isTimeDisabled, setIsTimeDisabled] = useState(true);
@@ -15,7 +14,13 @@ const Order = () => {
     const [selectedItem, setSelectedItem] = useState('');
     const [numberOfItems, setNumberOfItems] = useState('');
     const [uploadedFiles, setUploadedFiles] = useState([]);
-    const [blockname, setBlockName] = useState('');
+    const [blockName, setBlockName] = useState('');
+    const [isFormFilled, setIsFormFilled] = useState(false);
+
+    const [nameError, setNameError] = useState('');
+    const [phoneError, setPhoneError] = useState('');
+    const [blockError, setBlockError] = useState('');
+
 
     useEffect(() => {
         if (selectedDate) {
@@ -27,8 +32,25 @@ const Order = () => {
         }
     }, [selectedDate]);
 
+    useEffect(() => {
+        const allFieldsFilled = [
+            name,
+            phone,
+            selectedDate,
+            selectedService,
+            selectedItem,
+            blockName
+        ].every(field => field !== '' && field !== null);
+        setIsFormFilled(allFieldsFilled);
+    }, [name, phone, selectedDate, selectedService, selectedItem, blockName]);
+
     const handleNameChange = (e) => {
         setName(e.target.value);
+        if (e.target.value === '') {
+            setNameError('Name is required.');
+        } else {
+            setNameError('');
+        }
     };
 
     const handlePhoneChange = (e) => {
@@ -49,11 +71,15 @@ const Order = () => {
         { label: 'C1', value: 'C1' },
         { label: 'C2', value: 'C2' },
         { label: 'C3', value: 'C3' },
-    ]
+    ];
 
-    const handleBlockChange = (selectedoption) => {
-        const selectedValue = selectedoption.target.value;
-        setBlockName(selectedValue);
+    const handleBlockChange = (selectedOption) => {
+        setBlockName(selectedOption ? selectedOption.value : '');
+        if (selectedOption === '') {
+            setBlockError('Block is required.');
+        } else {
+            setBlockError('');
+        }
     };
 
     const handleDateChange = (selectedOption) => {
@@ -98,7 +124,7 @@ const Order = () => {
             formData.append('files', file);
         });
 
-        const fileType = files.type;
+        const fileType = files[0].type;
 
         if (
             !(
@@ -139,14 +165,13 @@ const Order = () => {
         const slots = [
             { value: '9:15am', label: '9:15 AM' },
             { value: '10:00am', label: '10:00 AM' },
-            { value: '11:00am', label: '11:00 AM' },
+            { value: '11:10am', label: '11:10 AM' },
             { value: '12:00pm', label: '12:00 PM' },
             { value: '12:50pm', label: '12:50 PM' },
             { value: '13:50pm', label: '13:50 PM' },
-            { value: '14:30pm', label: '14:30 PM' },
+            { value: '14:40pm', label: '14:40 PM' },
             { value: '15:30pm', label: '15:30 PM' },
             { value: '16:20pm', label: '16:20 PM' }
-
         ];
 
         const filteredSlots = slots.filter(slot => {
@@ -195,11 +220,11 @@ const Order = () => {
                 setTimingSlot([
                     { value: '9:15am', label: '9:15 AM' },
                     { value: '10:00am', label: '10:00 AM' },
-                    { value: '11:00am', label: '11:00 AM' },
+                    { value: '11:10am', label: '11:10 AM' },
                     { value: '12:00pm', label: '12:00 PM' },
                     { value: '12:50pm', label: '12:50 PM' },
                     { value: '13:50pm', label: '13:50 PM' },
-                    { value: '14:30pm', label: '14:30 PM' },
+                    { value: '14:40pm', label: '14:40 PM' },
                     { value: '15:30pm', label: '15:30 PM' },
                     { value: '16:20pm', label: '16:20 PM' }
                 ]);
@@ -211,55 +236,119 @@ const Order = () => {
 
     const weekDates = generateWeekDates();
 
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // Prevent the default form submission behavior
 
-    // ------ RETURN STATEMENT ------
+        let formIsValid = true;
+
+        // Validate name
+        if (!name) {
+            setNameError('Please fill out this field.');
+            formIsValid = false;
+        } else {
+            setNameError('');
+        }
+
+        // Validate phone number
+        if (!phone) {
+            setPhoneError('Please fill out this field.');
+            formIsValid = false;
+        } else {
+            setPhoneError('');
+        }
+
+        // Validate block
+        if (!blockName) {
+            setBlockError('Please fill out this field.');
+            formIsValid = false;
+        } else {
+            setBlockError('');
+        }
+
+        // Validate selected date
+        if (!selectedDate) {
+            window.alert('Please select a delivery date');
+            return;
+        }
+
+        if (!formIsValid) {
+            return;
+        }
+
+        // If all fields are filled
+        const formData = {
+            name,
+            phone,
+            selectedDate: selectedDate.value,
+            selectedService,
+            selectedItem,
+            numberOfItems,
+            uploadedFiles,
+            blockName
+        };
+
+        try {
+            const response = await axios.post('http://localhost:5000/submit-order', formData);
+            if (response.data.success) {
+                console.log('Form submitted successfully', response.data);
+                // Optionally, you can redirect or reset the form here
+            } else {
+                console.error('Form submission failed', response.data.message);
+            }
+        } catch (error) {
+            console.error('Error submitting form', error);
+        }
+    };
+
+
+
+
+    //--------RETURN STATEMENT-------
 
 
     return (
-        <div className="order-container">
+        <div className="order-container" onSubmit={handleSubmit}>
             <div className="yourdetail">
                 <h2>Your Details</h2>
             </div>
-            <form className="order-form">
+            <form className="order-form" onSubmit={handleSubmit}>
                 <label>Your Name</label>
                 <input
                     type="text"
                     name="name"
-                    placeholder="Enter full name"
+                    placeholder="*Enter full name"
                     value={name}
                     onChange={handleNameChange}
                     required
                 />
+                {nameError && <p style={{ color: 'red' }}>{nameError}</p>}
 
                 <label>Your Phone Number</label>
                 <input
                     type="tel"
                     name="phone"
-                    placeholder="Enter phone number"
+                    placeholder="*Enter phone number"
                     value={phone}
                     onChange={handlePhoneChange}
                     required
                 />
                 {phoneError && <p style={{ color: 'red' }}>{phoneError}</p>}
 
-                <>
-                    <label>Block</label>
-                    <Select
-                        name="block"
-                        options={blockOptions}
-                        value={blockOptions.find(option => option.value === blockname)}
-                        onChange={(selectedOption) => setBlockName(selectedOption.value)}
-                        placeholder="Select Block"
-                        required
-                    />
-
-                </>
-
+                <label>Block</label>
+                <Select
+                    name="block"
+                    options={blockOptions}
+                    value={blockOptions.find(option => option.value === blockName)}
+                    onChange={handleBlockChange}
+                    placeholder="*Select Block"
+                    required
+                />
+                {blockError && <p style={{ color: 'red' }}>{blockError}</p>}
                 <label>Service Type</label>
                 <Select
                     name="service"
                     options={serviceOptions}
-                    placeholder="Choose Service"
+                    placeholder="*Choose Service"
                     value={serviceOptions.find(option => option.value === selectedService)}
                     onChange={handleServiceChange}
                     required
@@ -271,7 +360,7 @@ const Order = () => {
                         <Select
                             name="item"
                             options={itemsOptions[selectedService].map(item => ({ value: item, label: item }))}
-                            placeholder="Choose option"
+                            placeholder="*Choose option"
                             value={{ value: selectedItem, label: selectedItem }}
                             onChange={handleItemChange}
                             required
@@ -327,7 +416,7 @@ const Order = () => {
                     name="day"
                     options={weekDates}
                     value={selectedDate}
-                    placeholder="Choose Day of Delivery"
+                    placeholder="*Choose Day of Delivery"
                     onChange={handleDateChange}
                     required
                 />
@@ -336,7 +425,7 @@ const Order = () => {
                 <Select
                     name="time"
                     options={timingSlot}
-                    placeholder="Time of Delivery"
+                    placeholder="*Time of Delivery"
                     isDisabled={isTimeDisabled}
                     required
                 />
@@ -347,9 +436,12 @@ const Order = () => {
                     rows="2"
                     placeholder="(optional)"
                 ></textarea>
-                <Link to="/payment">
-                    <button className="btn-confirm" type="submit">Submit</button>
-                </Link>                <div className="ImportantNote">
+                <div className="paymentlink">
+                    <Link to="/payment">
+                        <button className="btn-confirm" type="submit" disabled={!isFormFilled}>Submit</button>
+                    </Link>
+                </div>
+                <div className="ImportantNote">
                     <span>Important Note: </span>
                     <span> Your order will be delivered outside of Center Gate of your block.</span>
                 </div>
