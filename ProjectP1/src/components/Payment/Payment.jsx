@@ -16,7 +16,7 @@ const PaymentOptions = () => {
             try {
                 const response = await axios.get('http://localhost:5000/order-summary');
                 setOrderSummary(response.data);
-                console.log('Order Summary:', response.data); // Log order summary data
+                console.log('Order Summary:', response.data);
             } catch (error) {
                 console.error('Error fetching order summary', error);
             }
@@ -55,14 +55,12 @@ const PaymentOptions = () => {
         }
 
         try {
-            // Create an order on your server
             const order = await axios.post('http://localhost:5000/create-order', {
-                amount: orderSummary.totalAmount * 100, // Amount in paisa
+                amount: orderSummary.totalAmount * 100,
             });
 
-            // Options for Razorpay
             const options = {
-                key: 'rzp_live_lxisZa3qtRuaxX', // Replace with your Razorpay key ID
+                key: 'My_key_id',
                 amount: order.data.amount,
                 currency: 'INR',
                 name: 'QuickSheets',
@@ -73,7 +71,6 @@ const PaymentOptions = () => {
                     const orderId = response.razorpay_order_id;
                     const signature = response.razorpay_signature;
 
-                    // Verify payment on your server
                     const paymentVerification = await axios.post('http://localhost:5000/verify-payment', {
                         paymentId,
                         orderId,

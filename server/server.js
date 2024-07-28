@@ -8,8 +8,8 @@ app.use(cors());
 app.use(express.json());
 
 const razorpay = new Razorpay({
-    key_id: 'rzp_live_lxisZa3qtRuaxX',
-    key_secret: 'JqDqfRKw9zYHP1yxHZDvuLCs',
+    key_id: 'My_key_id',
+    key_secret: 'My_key_secret',
 });
 
 app.post('/create-order', async (req, res) => {
