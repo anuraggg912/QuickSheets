@@ -237,11 +237,10 @@ const Order = () => {
     const weekDates = generateWeekDates();
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
+        e.preventDefault(); 
 
         let formIsValid = true;
 
-        // Validate name
         if (!name) {
             setNameError('Please fill out this field.');
             formIsValid = false;
@@ -249,7 +248,6 @@ const Order = () => {
             setNameError('');
         }
 
-        // Validate phone number
         if (!phone) {
             setPhoneError('Please fill out this field.');
             formIsValid = false;
@@ -257,7 +255,6 @@ const Order = () => {
             setPhoneError('');
         }
 
-        // Validate block
         if (!blockName) {
             setBlockError('Please fill out this field.');
             formIsValid = false;
@@ -265,7 +262,6 @@ const Order = () => {
             setBlockError('');
         }
 
-        // Validate selected date
         if (!selectedDate) {
             window.alert('Please select a delivery date');
             return;
@@ -275,7 +271,6 @@ const Order = () => {
             return;
         }
 
-        // If all fields are filled
         const formData = {
             name,
             phone,
