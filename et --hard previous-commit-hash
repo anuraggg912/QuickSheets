@@ -1,0 +1,168 @@
+[33mcommit 26927e254e527e95f7a4a16811d86e5979db7a6f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Mon Aug 5 23:27:18 2024 +0530
+
+            modified:   ProjectP1/src/pages/About/About.css
+            modified:   ProjectP1/src/pages/About/About.jsx
+            modified:   node_modules/.package-lock.json
+
+[33mcommit af7622079360d088098d5f14146d2edbfc41a882[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Mon Jul 29 00:26:53 2024 +0530
+
+            modified:   ProjectP1/src/components/Payment/Payment.jsx
+            deleted:    server/.env
+            modified:   server/server.js
+
+[33mcommit 4b95cdf1e326d57701234c0ea01dce4e01f78a58[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Mon Jul 29 00:09:49 2024 +0530
+
+            modified:   ProjectP1/index.html
+            modified:   ProjectP1/src/components/Orderpage/Order.jsx
+            modified:   ProjectP1/src/components/Payment/Payment.jsx
+            modified:   ProjectP1/src/components/Review/Review.css
+            deleted:    ProjectP1/src/server.js
+            new file:   server/.env
+            new file:   server/server.js
+
+[33mcommit ff503ca7d8b989f7e6bdd722d12cb02e22612767[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Mon Jul 22 14:12:16 2024 +0530
+
+            modified:   ProjectP1/src/components/Payment/Payment.jsx
+
+[33mcommit cf260f5ae8f546511dfb9f98c9125c13888daaa2[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Mon Jul 22 14:06:27 2024 +0530
+
+            modified:   ProjectP1/src/components/Orderpage/Order.css
+            modified:   ProjectP1/src/components/Orderpage/Order.jsx
+            modified:   ProjectP1/src/components/Payment/Payment.jsx
+            modified:   ProjectP1/src/pages/Contact/Contact.jsx
+
+[33mcommit 4a81da3fea6fa48a68e710be84339747eb546f96[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Mon Jul 22 00:34:49 2024 +0530
+
+    new file:   ProjectP1/src/assets/greentick.png
+
+[33mcommit 9496b678d44f479222102886b051383536040011[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Mon Jul 22 00:28:40 2024 +0530
+
+    renamed:    ProjectP1/src/OrderConfirmation/OrderConfirmation.css -> ProjectP1/src/components/OrderConfirmation/OrderConfirmation.css
+    renamed:    ProjectP1/src/OrderConfirmation/OrderConfirmation.jsx -> ProjectP1/src/components/OrderConfirmation/OrderConfirmation.jsx
+
+[33mcommit 519862ede558b54e549df61f92f05bcb4245a449[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Sun Jul 21 23:08:38 2024 +0530
+
+     modified:   ProjectP1/src/App.jsx
+
+[33mcommit e3abfc0663723c9f99f17c40acf3e2f1bffc8bb4[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Sun Jul 21 22:53:14 2024 +0530
+
+            modified:   ProjectP1/src/App.jsx
+            new file:   ProjectP1/src/OrderConfirmation/OrderConfirmation.css
+            new file:   ProjectP1/src/OrderConfirmation/OrderConfirmation.jsx
+            modified:   ProjectP1/src/components/Orderpage/Order.jsx
+
+[33mcommit 7fdf8e7314822db9f47189a00bdd03d6b14df287[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Sun Jul 21 18:17:37 2024 +0530
+
+    modified:   ProjectP1/src/App.jsx
+    modified:   ProjectP1/src/components/Orderpage/Order.jsx
+    new file:   ProjectP1/src/components/Payment/Payment.css
+    new file:   ProjectP1/src/components/Payment/Payment.jsx
+
+[33mcommit d7b8fde04a57d49e6b77221322352d389139cb8d[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Wed Jul 10 00:22:10 2024 +0530
+
+            modified:   ProjectP1/src/components/Orderpage/Order.jsx
+
+[33mcommit 0c000a11adf0ca6db2840e0b5bf00cd0859b8534[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Tue Jul 2 20:47:49 2024 +0530
+
+    modified:   ProjectP1/src/components/Orderpage/Order.jsx
+
+[33mcommit 4fcdb73d237f70849f0d86b2ffecaa1ea88a524a[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Tue Jul 2 19:22:48 2024 +0530
+
+    modified:   ProjectP1/src/components/Orderpage/Order.jsx
+
+[33mcommit 7b2bd0efdc488baad0d1e2e8187b940c43c34b04[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Tue Jul 2 10:07:36 2024 +0530
+
+            modified:   ProjectP1/.gitignore
+            modified:   ProjectP1/src/App.jsx
+            modified:   node_modules/.package-lock.json
+            new file:   node_modules/@vercel/speed-insights/.eslintrc.cjs
+            new file:   node_modules/@vercel/speed-insights/LICENSE
+            new file:   node_modules/@vercel/speed-insights/dist/remix/index.js.map
+            new file:   node_modules/@vercel/speed-insights/dist/remix/index.mjs
+            new file:   node_modules/@vercel/speed-insights/dist/remix/index.mjs.map
+            new file:   node_modules/@vercel/speed-insights/dist/sveltekit/index.d.mts
+            new file:   node_modules/@vercel/speed-insights/dist/sveltekit/index.d.ts
+            new file:   node_modules/@vercel/speed-insights/dist/sveltekit/index.js
+            new file:   node_modules/@vercel/speed-insights/dist/sveltekit/index.js.map
+            new file:   node_modules/@vercel/speed-insights/dist/sveltekit/index.mjs
+            new file:   node_modules/@vercel/speed-insights/dist/sveltekit/index.mjs.map
+            new file:   node_modules/@vercel/speed-insights/dist/vue/index.d.mts
+            new file:   node_modules/@vercel/speed-insights/dist/vue/index.d.ts
+            new file:   node_modules/@vercel/speed-insights/dist/vue/index.js
+            new file:   node_modules/@vercel/speed-insights/dist/vue/index.js.map
+            new file:   node_modules/@vercel/speed-insights/dist/vue/index.mjs
+            new file:   node_modules/@vercel/speed-insights/dist/vue/index.mjs.map
+            new file:   node_modules/@vercel/speed-insights/jest.config.js
+            new file:   node_modules/@vercel/speed-insights/jest.setup.ts
+            new file:   node_modules/@vercel/speed-insights/package.json
+            new file:   node_modules/@vercel/speed-insights/scripts/postinstall.mjs
+            new file:   node_modules/@vercel/speed-insights/tsconfig.json
+            new file:   node_modules/@vercel/speed-insights/tsup.config.js
+            modified:   package-lock.json
+            modified:   package.json
+
+[33mcommit c7fdf27426751f5f2f213696aa3df2b409783d33[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Tue Jul 2 09:00:02 2024 +0530
+
+            modified:   ProjectP1/src/App.jsx
+            modified:   ProjectP1/vercel.json
+            modified:   ProjectP1/vite.config.js
+
+[33mcommit 61b1134e826c78c37a726fa1229c54cb2310754a[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Mon Jul 1 18:48:56 2024 +0530
+
+    created vercel.json
+
+[33mcommit fa6320e38a90001ab92aba4f792876d9647776e2[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Mon Jul 1 18:44:15 2024 +0530
+
+    Order.jsx fixed
+
+[33mcommit bb4fc460056bd03f9ff03a64ffeabe6e228d7c88[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Mon Jul 1 18:30:23 2024 +0530
+
+    Hero Background updated
+
+[33mcommit 60bc1480abc53f94ef8109395056179fc29e8bd4[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Mon Jul 1 18:06:30 2024 +0530
+
+    Updated background image in Hero component
+
+[33mcommit c9d1866a61c99f7f01ee68c6de30b84a51cd39ac[m
+Author: Anurag <anrg1576@gmail.com>
+Date:   Mon Jul 1 17:51:34 2024 +0530
+
+    add files
