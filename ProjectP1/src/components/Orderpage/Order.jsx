@@ -286,7 +286,6 @@ const Order = () => {
             const response = await axios.post('http://localhost:5000/submit-order', formData);
             if (response.data.success) {
                 console.log('Form submitted successfully', response.data);
-                // Optionally, you can redirect or reset the form here
             } else {
                 console.error('Form submission failed', response.data.message);
             }

@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'r
 import Topbar from './Topbar/Topbar';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import Home from './pages/Home/Home';
-import About from './pages/About/About';
+import Home from './pages/Home/Home';``
 import Contact from './pages/Contact/Contact';
 import Hero from './components/Hero/Hero';
 import Title from './Title/Title';
@@ -47,7 +46,6 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Navigate to="/" />} />
-        <Route path="/about" element={<About />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/order" element={<Order />} />
